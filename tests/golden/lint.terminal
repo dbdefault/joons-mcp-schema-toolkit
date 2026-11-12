@@ -1,0 +1,12 @@
+Format: joons-mcp-schema-toolkit/report; schema version: 1
+Tool: joons-mcp-schema-toolkit 0.1.0
+lint: invalid
+Tools: 1; schemas: 1; invalid: 0; incomplete: 1; findings: 6
+Example written: false
+tool-1 input: incomplete
+  warn ADDITIONAL_PROPERTIES_UNDECIDED /: Additional properties are undecided.
+  warn EMPTY_SCHEMA /: Empty schema.
+  warn NON_OBJECT_INPUT_SCHEMA /: Input schema does not include object.
+  info PROPERTY_DESCRIPTION_MISSING /: Property description is missing.
+  warn TYPE_MISSING /: Type is missing.
+  warn UNKNOWN_KEYWORD /: Unknown keyword.

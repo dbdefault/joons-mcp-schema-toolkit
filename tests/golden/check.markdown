@@ -1,0 +1,11 @@
+# check: invalid
+
+Format: joons\-mcp\-schema\-toolkit/report; schema version: 1
+Tool: joons\-mcp\-schema\-toolkit 0\.1\.0
+
+Tools: 1; schemas: 1; invalid: 1; incomplete: 0; findings: 1
+
+Example written: false
+
+## tool\-2 input: invalid
+- error REQUIRED\_MISSING /properties/\<property\-1\>: Required property is missing\.

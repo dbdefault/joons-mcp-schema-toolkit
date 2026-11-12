@@ -1,0 +1,17 @@
+export { VERSION } from './version.js';
+export { parseArgs } from './args.js';
+export { main } from './cli.js';
+export { analyzeSchema } from './core/schema.js';
+export { lintSchema } from './core/lint.js';
+export { checkInstance } from './core/check.js';
+export { makeExample } from './core/example.js';
+export { getSubset } from './core/subset.js';
+export { readInput } from './input/read.js';
+export { validateSnapshot } from './input/snapshot.js';
+export { redactText } from './security/redact.js';
+export { prepareOutputDir, writeAtomic } from './security/safe-dir.js';
+export { makeReport } from './output/report.js';
+export { makeFixtures } from './output/fixtures.js';
+export { renderJson } from './render/json.js';
+export { renderTerminal } from './render/terminal.js';
+export { renderMarkdown } from './render/markdown.js';

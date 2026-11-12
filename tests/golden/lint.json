@@ -1,0 +1,63 @@
+{
+  "format": "joons-mcp-schema-toolkit/report",
+  "schemaVersion": 1,
+  "tool": {
+    "name": "joons-mcp-schema-toolkit",
+    "version": "0.1.0"
+  },
+  "command": "lint",
+  "status": "invalid",
+  "summary": {
+    "tools": 1,
+    "schemas": 1,
+    "invalid": 0,
+    "incomplete": 1,
+    "findings": 6
+  },
+  "results": [
+    {
+      "tool": "tool-1",
+      "kind": "input",
+      "status": "incomplete",
+      "findings": [
+        {
+          "code": "ADDITIONAL_PROPERTIES_UNDECIDED",
+          "level": "warn",
+          "path": "",
+          "message": "Additional properties are undecided."
+        },
+        {
+          "code": "EMPTY_SCHEMA",
+          "level": "warn",
+          "path": "",
+          "message": "Empty schema."
+        },
+        {
+          "code": "NON_OBJECT_INPUT_SCHEMA",
+          "level": "warn",
+          "path": "",
+          "message": "Input schema does not include object."
+        },
+        {
+          "code": "PROPERTY_DESCRIPTION_MISSING",
+          "level": "info",
+          "path": "",
+          "message": "Property description is missing."
+        },
+        {
+          "code": "TYPE_MISSING",
+          "level": "warn",
+          "path": "",
+          "message": "Type is missing."
+        },
+        {
+          "code": "UNKNOWN_KEYWORD",
+          "level": "warn",
+          "path": "",
+          "message": "Unknown keyword."
+        }
+      ]
+    }
+  ],
+  "exampleWritten": false
+}

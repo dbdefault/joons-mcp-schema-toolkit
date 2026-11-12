@@ -1,0 +1,43 @@
+{
+  "format": "joons-mcp-schema-toolkit/subset",
+  "schemaVersion": 1,
+  "supported": [
+    "additionalProperties",
+    "const",
+    "enum",
+    "exclusiveMaximum",
+    "exclusiveMinimum",
+    "items",
+    "maxItems",
+    "maxLength",
+    "maximum",
+    "minItems",
+    "minLength",
+    "minimum",
+    "properties",
+    "required",
+    "type"
+  ],
+  "annotations": [
+    "default",
+    "description",
+    "examples",
+    "title"
+  ],
+  "unsupported": [
+    "$defs",
+    "$id",
+    "$ref",
+    "$schema",
+    "allOf",
+    "anyOf",
+    "format",
+    "multipleOf",
+    "not",
+    "oneOf",
+    "pattern",
+    "patternProperties",
+    "uniqueItems"
+  ],
+  "unknownKeywordPolicy": "incomplete"
+}

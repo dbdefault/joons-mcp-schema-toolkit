@@ -1,0 +1,7 @@
+# Security
+
+Use trusted local execution and review inputs and generated artifacts before sharing. Reports are allowlisted and do not contain input values, paths, or names. Example artifacts necessarily include selected tool and required property names. Identifier redaction is best effort, not a guarantee that all secrets are detected.
+
+Credential screening checks normalized and separator-joined forms, bounded base64/base64url windows, and best-effort hexadecimal, base32, reversal and common escaped forms. The scan limits input to 8192 characters: longer strings are masked or identifiers refused when that budget is exhausted; a uniform lowercase `a` string is provably free of the supported patterns. Each scan examines at most three decode passes and three forms per pass, with windows of at most 64 base64 characters per starting position; hex and base32 checks also use bounded windows. It may mask or refuse benign strings, and unknown encodings or credentials outside the supported patterns can be missed. Decoded full-run text is accepted for legacy text checks only if it is valid UTF-8.
+
+Output checks reject unsafe path overlap and links, but concurrent filesystem changes and platform rename behavior leave residual race risk. A failure during multiple writes may leave an earlier completed artifact. `--force` does not remove unrelated files or bypass safety checks. Report a vulnerability privately to the repository maintainers through the repository's security reporting channel; do not include credentials or private input in a public issue.

@@ -1,0 +1,26 @@
+{
+  "format": "joons-mcp-schema-toolkit/report",
+  "schemaVersion": 1,
+  "tool": {
+    "name": "joons-mcp-schema-toolkit",
+    "version": "0.1.0"
+  },
+  "command": "example",
+  "status": "unavailable",
+  "summary": {
+    "tools": 1,
+    "schemas": 1,
+    "invalid": 0,
+    "incomplete": 0,
+    "findings": 0
+  },
+  "results": [
+    {
+      "tool": "tool-2",
+      "kind": "input",
+      "status": "unavailable",
+      "findings": []
+    }
+  ],
+  "exampleWritten": false
+}

@@ -1,0 +1,41 @@
+{
+  "format": "joons-mcp-diff/snapshot",
+  "schemaVersion": 1,
+  "createdAt": "2026-01-01T00:00:00.000Z",
+  "tool": {
+    "name": "example",
+    "version": "1"
+  },
+  "label": null,
+  "server": {
+    "name": "example",
+    "version": "1",
+    "protocolVersion": "2025-03-26"
+  },
+  "tools": [
+    {
+      "name": "greet",
+      "title": null,
+      "description": null,
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name to greet."
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": null,
+      "annotations": null
+    }
+  ],
+  "stats": {
+    "toolCount": 1,
+    "pages": 1
+  }
+}

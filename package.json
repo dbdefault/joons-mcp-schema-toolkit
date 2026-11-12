@@ -1,0 +1,41 @@
+{
+  "name": "joons-mcp-schema-toolkit",
+  "version": "0.1.0",
+  "description": "Inspect a supported subset of MCP tool schemas offline.",
+  "keywords": [
+    "mcp",
+    "schema",
+    "validation",
+    "lint",
+    "fixtures"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dbdefault/joons-mcp-schema-toolkit"
+  },
+  "type": "module",
+  "license": "Apache-2.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "joons-mcp-schema-toolkit": "bin/joons-mcp-schema-toolkit.js"
+  },
+  "exports": "./src/index.js",
+  "scripts": {
+    "test": "node scripts/test.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "docs/",
+    "examples/",
+    "README.md",
+    "README.ko.md",
+    "ARCHITECTURE.md",
+    "SECURITY.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ]
+}

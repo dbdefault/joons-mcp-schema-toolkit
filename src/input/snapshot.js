@@ -1,0 +1,11 @@
+import { ToolkitError } from '../errors.js';
+import { LIMITS, isPlain, validateValue } from '../security/limits.js';
+export function validateSnapshot(v){ validateValue(v); return validateParsedSnapshot(v); }
+// Only the bounded tokenizer calls this with its freshly constructed JSON tree.
+export function validateParsedSnapshot(v){
+ const bad=()=>{throw new ToolkitError('invalid_snapshot');}; const exact=(o,req,opt=[])=>{if(!isPlain(o))bad();const keys=Object.keys(o);if(keys.length<req.length||keys.length>req.length+opt.length||req.some(k=>!Object.hasOwn(o,k))||keys.some(k=>!req.includes(k)&&!opt.includes(k)))bad();};const nullable=x=>x===null||typeof x==='string';
+ exact(v,['format','schemaVersion','createdAt','tool','label','server','tools','stats']);const iso=typeof v.createdAt==='string'&&/^(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d):(\d\d)(?:\.\d+)?(?:Z|([+-])(\d\d):(\d\d))$/.exec(v.createdAt);const year=iso?+iso[1]:0,month=iso?+iso[2]:0;const leap=year%4===0&&(year%100!==0||year%400===0);const days=[0,31,leap?29:28,31,30,31,30,31,31,30,31,30,31];if(v.format!=='joons-mcp-diff/snapshot'||v.schemaVersion!==1||!iso||!Number.isFinite(Date.parse(v.createdAt))||month<1||month>12||+iso[3]<1||+iso[3]>days[month]||+iso[4]>23||+iso[5]>59||+iso[6]>59||(iso[8]!==undefined&&(+iso[8]>23||+iso[9]>59))||!nullable(v.label))bad();
+ exact(v.tool,['name','version']);exact(v.server,['name','version','protocolVersion']);for(const x of [v.tool.name,v.tool.version,v.server.name,v.server.version,v.server.protocolVersion])if(typeof x!=='string')bad();
+ if(!Array.isArray(v.tools))bad();if(v.tools.length>LIMITS.tools)throw new ToolkitError('limit_exceeded');const names=new Set();for(const t of v.tools){exact(t,['name','title','description','inputSchema','outputSchema','annotations']);if(typeof t.name!=='string'||!t.name.length||t.name.length>1000||names.has(t.name)||!nullable(t.title)||!nullable(t.description)||(t.annotations!==null&&!isPlain(t.annotations)))bad();names.add(t.name);}
+ exact(v.stats,['toolCount','pages'],['duplicateNames']);if(v.stats.toolCount!==v.tools.length||!Number.isSafeInteger(v.stats.pages)||v.stats.pages<0||('duplicateNames'in v.stats&&(!Array.isArray(v.stats.duplicateNames)||v.stats.duplicateNames.some(x=>typeof x!=='string'))))bad();return v;
+}

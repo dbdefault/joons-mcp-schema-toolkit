@@ -1,0 +1,3 @@
+# End-to-end integration dependencies
+
+`e2e-cli.test.js` invokes the actual CLI; missing CLI or vendored validators fails rather than skips. Help, parsing and orchestration depend on W4. Snapshot parsing and safety depend on W2. Analysis, lint, check, example and subset depend on W1. Report formats and fixtures depend on W3. Example write and marker handling depend on W2 and W4; the two imported vendored Mock Server validators independently check the generated argument and fixture. These tests require all workers to be merged. They do not cover every release gate, filesystem race, platform, hostile input or differential case; those require further integration verification.

@@ -1,0 +1,10 @@
+# example: unavailable
+
+Format: joons\-mcp\-schema\-toolkit/report; schema version: 1
+Tool: joons\-mcp\-schema\-toolkit 0\.1\.0
+
+Tools: 1; schemas: 1; invalid: 0; incomplete: 0; findings: 0
+
+Example written: false
+
+## tool\-2 input: unavailable

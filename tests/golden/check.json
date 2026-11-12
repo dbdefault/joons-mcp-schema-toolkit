@@ -1,0 +1,33 @@
+{
+  "format": "joons-mcp-schema-toolkit/report",
+  "schemaVersion": 1,
+  "tool": {
+    "name": "joons-mcp-schema-toolkit",
+    "version": "0.1.0"
+  },
+  "command": "check",
+  "status": "invalid",
+  "summary": {
+    "tools": 1,
+    "schemas": 1,
+    "invalid": 1,
+    "incomplete": 0,
+    "findings": 1
+  },
+  "results": [
+    {
+      "tool": "tool-2",
+      "kind": "input",
+      "status": "invalid",
+      "findings": [
+        {
+          "code": "REQUIRED_MISSING",
+          "level": "error",
+          "path": "/properties/<property-1>",
+          "message": "Required property is missing."
+        }
+      ]
+    }
+  ],
+  "exampleWritten": false
+}

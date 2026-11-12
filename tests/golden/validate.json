@@ -1,0 +1,46 @@
+{
+  "format": "joons-mcp-schema-toolkit/report",
+  "schemaVersion": 1,
+  "tool": {
+    "name": "joons-mcp-schema-toolkit",
+    "version": "0.1.0"
+  },
+  "command": "validate",
+  "status": "invalid",
+  "summary": {
+    "tools": 2,
+    "schemas": 2,
+    "invalid": 1,
+    "incomplete": 1,
+    "findings": 2
+  },
+  "results": [
+    {
+      "tool": "tool-1",
+      "kind": "input",
+      "status": "invalid",
+      "findings": [
+        {
+          "code": "TYPE_INVALID",
+          "level": "error",
+          "path": "/type",
+          "message": "Invalid type keyword."
+        }
+      ]
+    },
+    {
+      "tool": "tool-2",
+      "kind": "output",
+      "status": "incomplete",
+      "findings": [
+        {
+          "code": "UNSUPPORTED_KEYWORD",
+          "level": "warn",
+          "path": "/pattern",
+          "message": "Unsupported keyword."
+        }
+      ]
+    }
+  ],
+  "exampleWritten": false
+}
