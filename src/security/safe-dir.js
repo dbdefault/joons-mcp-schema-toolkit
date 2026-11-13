@@ -4,7 +4,7 @@ import { randomBytes } from 'node:crypto';
 import { ToolkitError } from '../errors.js';
 const marker='.joons-schema-toolkit-output'; const allowed=new Set(['example.json','fixtures.json',marker]); const contexts=new Map();
 const fail=()=>{throw new ToolkitError('output_error');};
-function components(p){const abs=path.resolve(p),root=path.parse(abs).root;let cur=root;const seen=[];for(const part of abs.slice(root.length).split(path.sep).filter(Boolean)){cur=path.join(cur,part);try{const s=fs.lstatSync(cur);if(s.isSymbolicLink()||!s.isDirectory())fail();seen.push({path:cur,dev:s.dev,ino:s.ino});}catch(e){if(e.code==='ENOENT')break;throw e;}}return seen;}
+function components(p){const abs=path.resolve(p),root=path.parse(abs).root;let cur=root;const seen=[];for(const part of abs.slice(root.length).split(path.sep).filter(Boolean)){cur=path.join(cur,part);try{const s=fs.lstatSync(cur);if(s.isSymbolicLink()&&process.platform==='darwin'&&['/var','/tmp','/etc'].includes(cur))continue;if(s.isSymbolicLink()||!s.isDirectory())fail();seen.push({path:cur,dev:s.dev,ino:s.ino});}catch(e){if(e.code==='ENOENT')break;throw e;}}return seen;}
 function key(p){const x=path.resolve(p);return process.platform==='win32'||process.platform==='darwin'?x.toLowerCase():x;}
 function overlap(dir,input){const d=key(dir),p=key(input),rel=path.relative(d,p);return rel===''||(!rel.startsWith('..'+path.sep)&&rel!=='..'&&!path.isAbsolute(rel));}
 function identity(p){const s=fs.statSync(p);return {dev:s.dev,ino:s.ino};}
